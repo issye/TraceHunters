@@ -1,34 +1,21 @@
-## 🚩 Challenge 3: The Encoded Heist (Final Exam)
+## 🚩 Challenge 3: The Scrambled Cat 
 
-**Files:**
-* `evidence.jpg` (Intercepted image)
-* `vault.zip` (Locked evidence container)
+**Files:** `part_1.dat`, `part_2.dat`, `part_3.dat`
 
-**Scenario:**
-Congratulations, Agent. You have reached the final boss.
+**The Story:**
+We attempted to download this high-priority evidence from the suspect's server, but the connection was interrupted. The file—which we believe is a photo of the mastermind's cat—arrived in **three broken pieces**.
 
-We have seized a digital vault (`vault.zip`) from the syndicate's server, but it is encrypted with a strong password. Brute-forcing it would take years.
-
-However, we also intercepted an image (`evidence.jpg`) sent between two hackers just before the server went down. We believe the key is hidden inside this image. But be warned: these hackers are smart. They wouldn't send a password in plain English. They likely **encoded** it to look like random garbage so security scanners would miss it.
+Currently, the cat is in a state of quantum superposition: it is neither alive nor dead, it is just... data chunks.
 
 **Your Mission:**
-1.  **The Interrogation:** Use `strings` to search the `evidence.jpg` file for a hidden "Access Key".
-2.  **The Realization:** If you try to use the key you found, it will fail. Look closely at the text. Does it look like random letters ending with `=`?
-3.  **The Decode:** Use your knowledge of **Base64** to decode that gibberish into the *real* password.
-4.  **The Loot:** Unlock `vault.zip` and reveal the final flag.
+1.  **Analyze the Anatomy:** Use `hexedit` to identify the body parts.
+    * Which part is the **Head**? (Look for the PNG Signature `89 50...`)
+    * Which part is the **Tail**? (Look for the `IEND` tag at the bottom)
+    * Which part is the **Body**? (The piece with neither)
+2.  **Perform the Surgery:** You must stitch the file back together.
+3.  **The Ultimate Pun:** To fix this file, you must use the Linux **`cat`** command.
+    * *Literally. You have to `cat` the cat.*
 
 **Hints:**
-* *Filter your search! Use `strings evidence.jpg | grep "Key"`.*
-* *If the text looks like `ZmxhZ3...`, it is Base64.*
-* *To decode it in the terminal, use: `echo "YOUR_FOUND_KEY" | base64 -d`*
-
----
-
-### 🏆 Workshop Conclusion
-
-If you have solved all three challenges, you have successfully learned the core skills of a Forensic Analyst:
-* [x] **Steganography:** Extracting hidden files (`binwalk`).
-* [x] **File Repair:** Fixing corrupt binaries manually (`hexedit`).
-* [x] **Data Extraction:** decoding hidden credentials (`strings` + `base64`).
-
-**Welcome to the team, Hunter.**
+* *Command syntax: `cat [HEAD_FILE] [BODY_FILE] [TAIL_FILE] > fixed_cat.png`*
+* *If you do it right, the image will open. If you do it wrong, the cat will look... very strange.*
